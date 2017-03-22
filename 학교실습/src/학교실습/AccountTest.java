@@ -2,21 +2,37 @@ package 학교실습;
 import java.util.Scanner;
 public class AccountTest {
 	public static void main(String[] args){
+
 		Scanner input = new Scanner(System.in);
-		Account a = new Account("account1");
-		Account b = new Account("account2");
-		System.out.print("// .. add money to the account\n// .. check the balance of the account\n");
-		a.setMoney(50.0);
-		a.balance();
-		b.balance();
-//		a.credit();
-		a.debit();
-		a.balance();
-		b.balance();
-		b.debit();
-		a.balance();
-		b.balance();
+		CheckingAccount a = new CheckingAccount("Account1");
+		CheckingAccount b = new CheckingAccount("Account2");
+
+		b.setBalance(100.0);
+		a.setBalance(100.0);
+		System.out.printf("Account1 balance: $%f\n", a.getBalance());
+
+		System.out.printf("Account2 balance: $%f\n", b.getBalance());
+
 		
+		System.out.print("Enter deposit amount for Account1: ");
+		a.credit();
+		System.out.printf("Account1 balance: $%f\n", a.getBalance());
+
+		System.out.printf("Account2 balance: $%f\n", b.getBalance());
+		
+		System.out.print("Enter withdrawal amount for Account2:");
+		b.debit();
+		System.out.printf("Account1 balance: $%f\n", a.getBalance());
+
+		System.out.printf("Account2 balance: $%f\n", b.getBalance());
+		
+		System.out.println("next month!");
+		a.nextMonth();
+		b.nextMonth();
+		System.out.printf("Account1 balance: $%f\n", a.getBalance());
+
+		System.out.printf("Account2 balance: $%f\n", b.getBalance());
+
 	
 	}
 }

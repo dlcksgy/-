@@ -2,42 +2,45 @@ package 학교실습;
 import java.util.Scanner;
 
 public class Account {
-	private String name;
-	private double money;
+	protected String name;
+	protected double balance;
+//	public Account(){}
 	
 	public Account(String name){
 		this.name = name;
 	}
-	public void setMoney(double money){
-		this.money = money;
-	}
+
 	public void credit(){
 		Scanner input = new Scanner(System.in);
 		
-		System.out.print("Enter amount of money for " + name + ": $");
+	//	return "Enter amount of money for " + name + ": $";
 		double money = input.nextDouble();
-		this.money += money;
+		this.balance += money;
 	}
 	
 	public void debit(){
 		Scanner input = new Scanner(System.in);
-		System.out.print("Enter amount of money for " + name + ": $");
+//		System.out.print("Enter amount of money for " + name + ": $");
 		double money = input.nextDouble();
 
 		while(true){
-			System.out.println("subtracing " + money + " from" + name + "balance");
-			if(this.money > money){
-				this.money -= money;
-				return;
+//			System.out.println("Subtracting " + money + " from" + name + "balance");
+			if(this.balance > money){
+				this.balance -= money;
+				continue;
 			}else{
-				System.out.println("Debate amount exeeded account balance");
-				return;
+				System.err.println("Debate amount exeeded account balance");
 			}
 		}
 		
 	}
 	
-	public void balance(){
-		System.out.println(name+"'s balance: $" + money);
+	public double getBalance(){
+		return balance;
+	}
+	
+	protected void setBalance(double money){
+		balance = money;
+
 	}
 }
