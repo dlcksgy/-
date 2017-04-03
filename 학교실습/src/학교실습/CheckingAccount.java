@@ -7,7 +7,7 @@ public class CheckingAccount extends Account{
 	private double credit_limit = 100.0;
 	private double interest;
 	private double loan_interest = 0.07;
-//	public CheckingAccount (String name){
+//	public CheckingAccount (String name){  
 //		super(name);
 //		this.name = name;
 //	}

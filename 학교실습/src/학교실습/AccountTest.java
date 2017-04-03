@@ -12,7 +12,7 @@ public class AccountTest {
 		account1.setBalance(100.0);
 		System.out.printf("Account1 balance: $%.2f \t현재 출금 가능액1: %.2f\n", account1.getBalance(),account1.getWithdrawableAccount());
 		System.out.println("Enter withdrawal amount for Account1: ");
-		amount = scan.nextDouble();
+		amount = scan.nextDouble();  
 		account1.debit(amount);
 		
 		System.out.printf("Account1 balance: $%.2f \t현재 출금 가능액: %.2f\n", account1.getBalance(),account1.getWithdrawableAccount());
