@@ -2,7 +2,7 @@ package 학교실습;
 
 import java.util.Scanner;
 
-public class SavingAccount extends Account{
+public class SavingAccount extends Account implements Valuable{
 	private double interest;
 	private double first_balance;
 	private int time_pass = 0;
@@ -41,16 +41,27 @@ public class SavingAccount extends Account{
 		return balance;
 	}
 	@Override
+	public double estimateValue(int month){
+		if((time_pass + month) > 12){
+			return balance*(Math.pow(1.0+interest, 12));
+		}
+		return first_balance*(Math.pow(1.0+interest, time_pass + month));
+	}
+	@Override
+	public String toString(){
+		return String.format("SavingsAccount_balance:", balance);
+	}
+	@Override
 	public void passTime(int t){
 		if((time_pass + t) > 12){
 //			System.out.println("#debug1");
-			balance = balance*(Math.pow(1.0+interest, 12-time_pass));
+			balance = balance*(Math.pow(1.0+interest, 12));
 			time_pass = 12;
 		return;  
 		}
 //		System.out.println("#debug1");
 		time_pass = time_pass + t;
-		balance = first_balance*(Math.pow(1.0+interest, time_pass));
+//		balance = first_balance*(Math.pow(1.0+interest, time_pass));
 	}
 	
 	@Override

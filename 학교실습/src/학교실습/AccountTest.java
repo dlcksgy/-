@@ -2,12 +2,29 @@ package 학교실습;
 import java.util.Scanner;
 public class AccountTest {
 	public static void main(String[] args){
-
+		Valuable[] objectList = new Valuable[4];
+		
 		Scanner scan = new Scanner(System.in);
-		double amount;
-		Account account1 = new CheckingAccount(100,50.0,0.01,0.07);
-		Account account2 = new SavingAccount(100,0.05);
-
+		objectList[0] = new CheckingAccount(100,50.0,0.01,0.07);
+		objectList[1] = new SavingAccount(100,0.05);
+		objectList[2] = new Human("Mark",20);
+		objectList[3] = new Car("Mycar",5000);
+		
+		for(Valuable objectItem : objectList){
+			System.out.printf("%s \n", objectItem.toString());
+			System.out.printf("6 month later Valuable: %.2f \n\n", objectItem.estimateValue(6));
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/*
 		account2.setBalance(100.0);
 		account1.setBalance(100.0);
 		System.out.printf("Account1 balance: $%.2f \t현재 출금 가능액1: %.2f\n", account1.getBalance(),account1.getWithdrawableAccount());
@@ -53,7 +70,7 @@ public class AccountTest {
 		System.out.printf("Account2 balance: $%.2f \t현재 출금 가능액: %.2f\n", account2.getBalance(),account2.getWithdrawableAccount());
 		account2.debit(50);
 		System.out.printf("Account2 balance: $%.2f \t현재 출금 가능액: %.2f\n", account2.getBalance(),account2.getWithdrawableAccount());
-		
+		*/
 		scan.close();
 	
 	}

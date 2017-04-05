@@ -2,7 +2,7 @@ package 학교실습;
 
 import java.util.Scanner;
 
-public class CheckingAccount extends Account{
+public class CheckingAccount extends Account implements Valuable{
 	
 	private double credit_limit = 100.0;
 	private double interest;
@@ -11,14 +11,22 @@ public class CheckingAccount extends Account{
 //		super(name);
 //		this.name = name;
 //	}
+	
 	public CheckingAccount(double balance, double limit, double inter, double loanInterest){
 		this.balance = balance;
 		this.credit_limit = limit;
 		this.loan_interest = loanInterest;
 		interest = inter;
 	}
-	
-	
+	@Override
+	public double estimateValue(int month){
+		return balance;
+		
+	}
+	@Override
+	public String toString(){
+		return String.format("CheckingAccount_balance:", balance);
+	}
 	@Override
 	public void debit(double money){
 //		Scanner input = new Scanner(System.in);
