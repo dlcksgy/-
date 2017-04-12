@@ -25,7 +25,7 @@ public class CheckingAccount extends Account implements Valuable{
 	}
 	@Override
 	public String toString(){
-		return String.format("CheckingAccount_balance:", balance);
+		return String.format("CheckingAccount_balance:%.2f", balance);
 	}
 	@Override
 	public void debit(double money){

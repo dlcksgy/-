@@ -49,7 +49,7 @@ public class SavingAccount extends Account implements Valuable{
 	}
 	@Override
 	public String toString(){
-		return String.format("SavingsAccount_balance:", balance);
+		return String.format("SavingsAccount_balance:%.2f", balance);
 	}
 	@Override
 	public void passTime(int t){
