@@ -14,6 +14,6 @@ public class Human implements Valuable{
 	}
 	@Override
 	public String toString(){
-		return String.format(name);
+		return String.format("Human name: " + name + "\nregistered age: " + age);
 	}
 }

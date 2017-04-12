@@ -17,6 +17,6 @@ public class Car implements Valuable{
 	
 	@Override
 	public String toString(){
-		return String.format(name);
+		return String.format("Car name: " + name + "\ninitial price: " + price);
 	}
 }
