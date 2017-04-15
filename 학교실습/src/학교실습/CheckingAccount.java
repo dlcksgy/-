@@ -28,19 +28,18 @@ public class CheckingAccount extends Account implements Valuable{
 		return String.format("CheckingAccount_balance:%.2f", balance);
 	}
 	@Override
-	public void debit(double money){
-//		Scanner input = new Scanner(System.in);
-//		System.out.print("Enter amount of money for " + name + ": $");
-//		double money = input.nextDouble();
-
+	public void debit(double money) throws Exception{
+		if(money < 0){
+			throw new Exception("음수입력");
+		}
 		while(true){
-//			System.out.println("Subtracting " + money + " from" + name + "balance");
 			if((this.balance-money) >= (-1.0)*credit_limit){
 				this.balance -= money;
 				break;
 			}else{
-				System.err.println("Debate amount exeeded credit limit");
-				break;
+				throw new Exception("debit amount exeed balance");
+//				System.err.println("Debate amount exeeded credit limit");
+//				break;
 			}
 		}
 		

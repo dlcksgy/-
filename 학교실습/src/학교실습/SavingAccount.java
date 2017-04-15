@@ -14,20 +14,25 @@ public class SavingAccount extends Account implements Valuable{
 		this.interest = interest;
 	}
 	@Override
-	public void debit(double money){
+	public void debit(double money)throws Exception{
 //		Scanner input = new Scanner(System.in);
 //		System.out.print("Enter amount of money for " + name + ": $");
 //		double money = input.nextDouble();
+		if(money < 0){
+			throw new Exception("아직 출금할 수 없습니다.");
+		}
 		if(time_pass < 12){
-			System.out.println("아직 출금할 수 없습니다.");
-			return;
+//	System.out.println("아직 출금할 수 없습니다.");
+			throw new Exception("아직 출금할 수 없습니다.");
 		}
 
 //			System.out.println("Subtracting " + money + " from" + name + "balance");
+
 		if(this.balance > money){
 			this.balance -= money;
 		}else{
-			System.err.println("Debate amount exeeded account balance");
+			throw new Exception("Debit amount exeed balance");
+		//	System.err.println("Debate amount exeeded account balance");
 		}
 
 		
