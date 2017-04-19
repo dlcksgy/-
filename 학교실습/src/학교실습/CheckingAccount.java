@@ -20,7 +20,12 @@ public class CheckingAccount extends Account implements Valuable{
 	}
 	@Override
 	public double estimateValue(int month){
-		return balance;
+		return balance += balance*month*interest;
+		
+	}
+
+	public double estimateValue(){
+		return balance += balance*interest;
 		
 	}
 	@Override
@@ -55,12 +60,20 @@ public class CheckingAccount extends Account implements Valuable{
 	public double getWithdrawableAccount(){
 		return credit_limit + balance;
 	}
-	
+	@Override
 	public void passTime(int t){
 		if(balance >= 0){
 			balance += balance*t*this.interest;
 		}else{
 			balance += balance*this.loan_interest*t;
+		}
+	}
+	@Override
+	public void passTime(){
+		if(balance >= 0){
+			balance += balance*this.interest;
+		}else{
+			balance += balance*this.loan_interest;
 		}
 	}
 	

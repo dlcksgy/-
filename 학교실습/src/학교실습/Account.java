@@ -10,11 +10,11 @@ public abstract class Account {
 		this.name = name;
 	}
 
-	public void credit(){
-		Scanner input = new Scanner(System.in);
+	public void credit(double money){
+	//	Scanner input = new Scanner(System.in);
 		
 	//	return "Enter amount of money for " + name + ": $";
-		double money = input.nextDouble();
+	//	double money = input.nextDouble();
 		this.balance += money;
 	}
 	
@@ -33,7 +33,8 @@ public abstract class Account {
 	
 	public abstract double getWithdrawableAccount();
 	
-	public abstract void passTime(int t);
+	public abstract void passTime(int t);	
+	public abstract void passTime();
 	
 	
 	

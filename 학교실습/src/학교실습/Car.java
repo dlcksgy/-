@@ -14,6 +14,11 @@ public class Car implements Valuable{
 		return (price*4/5)*(Math.pow((99./100),month));
 		
 	}
+	@Override
+	public double estimateValue(){
+		return (price*4/5)*(Math.pow((99./100),1));
+		
+	}
 	
 	@Override
 	public String toString(){

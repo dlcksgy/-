@@ -53,6 +53,14 @@ public class SavingAccount extends Account implements Valuable{
 		return first_balance*(Math.pow(1.0+interest, time_pass + month));
 	}
 	@Override
+	public double estimateValue(){
+		if((time_pass + 1) > 12){
+			return balance*(Math.pow(1.0+interest, 12));
+		}
+		return first_balance*(Math.pow(1.0+interest, time_pass + 1));
+	}
+	
+	@Override
 	public String toString(){
 		return String.format("SavingsAccount_balance:%.2f", balance);
 	}
@@ -66,6 +74,17 @@ public class SavingAccount extends Account implements Valuable{
 		}
 //		System.out.println("#debug1");
 		time_pass = time_pass + t;
+//		balance = first_balance*(Math.pow(1.0+interest, time_pass));
+	}
+	public void passTime(){
+		if((time_pass + 1) > 12){
+//			System.out.println("#debug1");
+			balance = balance*(Math.pow(1.0+interest, 12));
+			time_pass = 12;
+		return;  
+		}
+//		System.out.println("#debug1");
+		time_pass = time_pass + 1;
 //		balance = first_balance*(Math.pow(1.0+interest, time_pass));
 	}
 	
